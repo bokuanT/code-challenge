@@ -10,7 +10,7 @@ import TransactionSummary from "./TransactionSummary";
 
 export default function SimpleCard() {
     return (
-        <Card className="relative mt-6 w-120 p-4">
+        <Card className="relative mt-6 w-60/100 p-4">
             <SettingsButton />
             <CardBody>
                 <ConversionInterface />

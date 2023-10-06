@@ -121,7 +121,14 @@ export default function ConversionInterface() {
           value={youPay} 
           onChange={handleYouPayChange} 
         />
-        <Button onClick={() => handleOpenDialog("pay")}>{payCurrency}</Button>
+        <Button onClick={() => handleOpenDialog("pay")} className="flex items-center space-x-2">
+          <img 
+            src={`/tokens/${payCurrency}.svg`} 
+            alt={`${payCurrency} logo`} 
+            className="w-4 h-4"
+          />
+          <span className="text-xs">{payCurrency}</span>
+        </Button>
       </div>
       <Typography color="blue-gray">
         {youPayCurrencyPrice ? `Price: $${youPayCurrencyPrice}` : '-'}
@@ -138,14 +145,21 @@ export default function ConversionInterface() {
           value={youRecieve} 
           onChange={handleYouRecieveChange} 
         />
-        <Button onClick={() => handleOpenDialog("receive")}>{recieveCurrency}</Button>
+        <Button onClick={() => handleOpenDialog("receive")} className="flex items-center space-x-2">
+          <img 
+            src={`/tokens/${recieveCurrency}.svg`} 
+            alt={`${recieveCurrency} logo`} 
+            className="w-4 h-4"
+          />
+          <span className="text-xs">{recieveCurrency}</span>
+        </Button>
       </div>
       <Typography color="blue-gray">
         {youRecieveCurrencyPrice ? `Price: $${youRecieveCurrencyPrice}` : '-'}
       </Typography>
 
       {/* Dialog */}
-      <Dialog open={openDialog} handler={() => setOpenDialog(false)}>
+      <Dialog open={openDialog} handler={() => setOpenDialog(false)} className="w-auto">
         <DialogHeader>Select a Currency</DialogHeader>
         <DialogBody divider>
           <div className="h-64 overflow-y-auto"> {/* Adjust the height (h-64) as needed */}
@@ -154,8 +168,13 @@ export default function ConversionInterface() {
                 <Button
                   variant="text"
                   onClick={() => handleSelectCurrency(currency)}
-                  className="w-full" 
+                  className="w-full flex items-center" 
                 >
+                  <img 
+                    src={`/tokens/${currency}.svg`} 
+                    alt={`${currency} logo`} 
+                    className="w-6 h-6 mr-2"
+                  />
                   {currency}
                 </Button>
               </div>
